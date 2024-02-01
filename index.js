@@ -5,10 +5,10 @@ const port = process.env.PORT || 3000;
 const is_qoddi = process.env.IS_QODDI || false;
 
 const dbConfig = {
-	host: "host",
-	user: "user",
-	password: "password",
-	database: "database",
+	host: "sql.freedb.tech",
+	user: "freedb_cwan_main",
+	password: "n!?hTMRsJ2GNPM*",
+	database: "freedb_comp2350-week2-A00970304",
 	multipleStatements: false
 };
 
