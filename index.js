@@ -2,7 +2,7 @@ const mysql = require('mysql2/promise');
 const http = require('http');
 
 const port = process.env.PORT || 3000;
-const is_qoddi = process.env.IS_QODDI || false;
+const is_render = process.env.IS_RENDER|| false;
 
 const dbConfig = {
 	host: "sql.freedb.tech",
@@ -39,18 +39,18 @@ http.createServer(function(req, res) {
 	if (success) {
 		//Send an HTTP Status code of 200 for success!
 		res.writeHead(200, {'Content-Type': 'text/html'});
-		if (is_qoddi) {
+		if (is_render) {
 			//write the HTML
 			res.end(`<!doctype html><html><head></head><body>
-			<div>Running on Qoddi</div>
-			<div>Connected to the database, check the Qoddi logs for the results.</div>
+			<div>Running on Render</div>
+			<div>Connected to the database, check the Render logs for the results.</div>
 			</body></html>`);
 		}
 		else {
 			//write the HTML
 			res.end(`<!doctype html><html><head></head><body>
 			<div>Running on localhost</div>
-			<div>Connected to the database, check the Qoddi logs for the results.</div>
+			<div>Connected to the database, check the Render logs for the results.</div>
 			</body></html>`);
 		}
 	}
@@ -59,7 +59,7 @@ http.createServer(function(req, res) {
 		res.writeHead(500, {'Content-Type': 'text/html'});
 		//write the HTML
 		res.end(`<!doctype html><html><head></head><body>
-		<div>Database error, check the Qoddi logs for the details.</div>
+		<div>Database error, check the Render logs for the details.</div>
 		</body></html>`);
 		console.log("Error connecting to mysql");
 	}
